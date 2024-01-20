@@ -73,3 +73,11 @@ test('login as user - navigate to chat', async ({ page }) => {
     await page.getByRole('button', { name: 'nieuwfillertest' }).click();
     // await page.getByText('System - 1/19/2024, 3:03:48 PM Deze chatgroep heeft nog geen berichten!').click();
 });
+
+test('no login - check if private routing elements exists', async ({ page }) => { 
+    await page.goto('https://wpr23-24b.azurewebsites.net/');
+    await page.getByRole('banner').click();
+    await page.getByText('HomeAboutServicesNewsContactInloggen').click();
+    await expect(page.getByRole('link', {name:'Chat'})).toHaveCount(0);
+    await expect(page.getByRole('link', {name:'Beheer'})).toHaveCount(0);
+});

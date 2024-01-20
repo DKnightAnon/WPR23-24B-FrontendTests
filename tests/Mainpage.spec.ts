@@ -19,3 +19,9 @@ test('Moving from /home to /contact has 2 titles `contact`', async ({ page }) =>
 
   });
 
+  test('Move to /service and click button to accessibility.nl', async ( {page}) => {
+    await page.goto('https://wpr23-24b.azurewebsites.net/');
+    await page.getByRole('link', { name: 'Services' }).click();
+    await page.getByRole('button', { name: 'Lees Meer' }).first().click();
+    await page.getByText('Stichting Accessibility Home van Stichting Accessibility Menu Actueel Nieuws').click();
+  });
