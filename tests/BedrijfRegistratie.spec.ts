@@ -1,0 +1,31 @@
+import { test, expect } from '@playwright/test';
+
+test('BedrijfRegistratie', async ( {page}) => {
+await page.goto('https://wpr23-24b.azurewebsites.net/');
+await page.getByRole('link', { name: 'Inloggen' }).click();
+await page.getByLabel('Registreer u hier').click();
+await page.getByText('Registreer als bedrijf').click();
+await page.getByPlaceholder('Vul hier de naam in van het').click();
+await page.getByPlaceholder('Vul hier de naam in van het').fill('Company');
+await page.getByPlaceholder('Vul hier de naam in van het').press('Control+ArrowLeft');
+await page.getByPlaceholder('Vul hier de naam in van het').fill('TestCompany');
+await page.getByPlaceholder('Vul hier de naam in van het').press('Tab');
+await page.getByPlaceholder('Vul hier de volledige naam in').fill('Testpersoon');
+await page.getByPlaceholder('Vul hier de volledige naam in').press('Tab');
+await page.getByPlaceholder('Vul hier het e-mailadres in').fill('testcompany@example.com');
+await page.getByPlaceholder('Vul hier het e-mailadres in').press('Tab');
+await page.getByPlaceholder('Vul hier het telefoonnummer').fill('0612332111');
+await page.getByPlaceholder('Vul hier het telefoonnummer').press('Tab');
+await page.getByPlaceholder('Vul hier het postcode in van').fill('2323BZ');
+await page.getByPlaceholder('Vul hier het postcode in van').press('Tab');
+await page.getByPlaceholder('Vul hier het adres in van het').fill('examplestraat 23');
+await page.getByPlaceholder('Vul hier het adres in van het').press('Tab');
+await page.getByPlaceholder('Vul hier de URL in van het').fill('https://examplewebsite.com');
+await page.getByPlaceholder('Vul hier de URL in van het').press('Tab');
+await page.getByPlaceholder('Vul hier het wachtwoord in').fill('Testcompany2024!');
+await page.getByPlaceholder('Vul hier het tracking ID in').click();
+await page.getByPlaceholder('Vul hier het tracking ID in').fill('12345');
+await page.getByPlaceholder('Vul hier het tracking ID in').press('Control+ArrowLeft');
+await page.getByPlaceholder('Vul hier het tracking ID in').fill('#12345');
+await page.getByRole('button', { name: 'Registratie Afronden' }).click();
+});
